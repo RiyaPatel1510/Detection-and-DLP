@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: If you use this, please cite as below.
+title: Riya Patel — Open Detection Rulepack & DLP Playbook
+version: 0.1.0
+authors:
+  - family-names: Patel
+    given-names: Riya
+date-released: 2025-08-26
+repository-code: https://github.com/<YOUR_GH_USERNAME>/riya-detections-and-dlp
