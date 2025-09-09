@@ -19,8 +19,8 @@ A curated set of **Sigma** rules (portable to many SIEMs) with companion **Splun
 ## Quick Start
 ```bash
 # Clone
-git clone https://github.com/<YOUR_GH_USERNAME>/riya-detections-and-dlp
-cd riya-detections-and-dlp
+git clone https://github.com/RiyaPatel1510/Detections-and-Dlp
+cd Detections-and-Dlp
 
 # (Optional) Validate Sigma rules locally
 pipx install sigma-cli || pip install --user sigma-cli
