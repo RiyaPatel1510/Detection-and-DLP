@@ -1,0 +1,8 @@
+/* Suspicious PowerShell Download Cradle */
+index=win* (sourcetype="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational" OR sourcetype="XmlWinEventLog:Security")
+| eval cmd=coalesce(CommandLine, process_command_line)
+| eval img=coalesce(Image, process_path)
+| where like(lower(img), "%\\powershell.exe") OR like(lower(img), "%\\pwsh.exe")
+| where match(lower(cmd), "invoke-webrequest|downloadstring|invoke-expression|start-bitstransfer|new-object\s+net\.webclient|iex\(")
+| stats count min(_time) as first_seen max(_time) as last_seen by host, user, img, cmd, ParentImage, ParentCommandLine
+| where count>=1

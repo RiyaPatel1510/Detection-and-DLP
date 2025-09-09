@@ -1,0 +1,38 @@
+title: Suspicious PowerShell Download Cradle
+id: d7c9c6b9-2f1b-4d8a-9b7c-5c5b5bf6a7e1
+status: experimental
+description: Detects PowerShell executing common web download cradles (IEX, DownloadString, WebClient, BITS).
+author: Riya Patel
+date: 2025/08/26
+logsource:
+  product: windows
+  category: process_creation
+  service: sysmon
+  definition: EventID 1 / process creation; adjust for your telemetry
+detection:
+  selection_image:
+    Image|endswith:
+      - '\\powershell.exe'
+      - '\\pwsh.exe'
+  selection_cmd:
+    CommandLine|contains:
+      - 'IEX('
+      - 'Invoke-Expression'
+      - 'DownloadString('
+      - 'Net.WebClient'
+      - 'Invoke-WebRequest'
+      - 'Start-BitsTransfer'
+  condition: selection_image and selection_cmd
+fields:
+  - Image
+  - CommandLine
+  - ParentImage
+  - User
+falsepositives:
+  - Admin/IT automation scripts
+level: high
+tags:
+  - attack.t1059.001
+  - attack.t1105
+references:
+  - https://attack.mitre.org/techniques/T1059/001/
