@@ -1,3 +1,0 @@
-index=o365 sourcetype=exchange
-| search AttachmentCount > 0 AND RecipientDomain!="company.com"
-| stats count by Sender, RecipientDomain, Subject
