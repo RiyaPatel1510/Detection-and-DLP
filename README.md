@@ -49,7 +49,11 @@ Follow `playbooks/dlp/m365/Playbook.md` to:
 - T1048 Exfiltration over Alternative Protocol
 
 See `docs/mapping.md`.
+## 👥 Contributors
 
+- [Ram Badhiwala](https://github.com/rambadhiwala) – Detection logic, DLP playbooks, SOC documentation
+
+  
 ## Testimonials & Adopters
 We welcome short quotes + impact metrics (FP↓, MTTR↓, scale). See `TESTIMONIALS.md` or open a **“Testimonial”** issue.
 
