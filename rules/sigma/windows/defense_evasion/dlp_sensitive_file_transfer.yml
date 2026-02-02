@@ -1,0 +1,9 @@
+title: Sensitive File Transfer Detection
+logsource:
+  product: cloud
+  service: o365
+detection:
+  selection:
+    Operation: FileDownloaded
+  condition: selection
+level: medium
